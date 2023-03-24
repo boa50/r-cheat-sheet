@@ -17,4 +17,6 @@ ggplot(df, aes(x, y)) +
   scale_y_continuous(breaks = seq(0, 15, by = 3),
                      limits = c(0, 15),
                      expand = expansion(mult = 0),
-                     labels = scales::label_number(suffix = "m\u00B2"))
+                     labels = scales::label_number(suffix = "m\u00B2")) +
+  theme(axis.title.x = element_text(margin = margin(t = 10)),
+        axis.title.y = element_text(margin = margin(r = 10)))
