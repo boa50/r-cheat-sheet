@@ -4,7 +4,7 @@
 
 library(ggplot2)
 
-my_colours <- list(
+app_colours <- list(
   title = "#616161",
   axis = "#9e9e9e",
   main = "#1976d2",
@@ -14,16 +14,16 @@ my_colours <- list(
   line_complementary = "#78909c"
 )
 
-theme_boa <- function() {
+theme_minimalistic <- function() {
   theme_classic() +
-    theme(plot.title = element_text(hjust = 0, colour = my_colours$title),
+    theme(plot.title = element_text(hjust = 0, colour = app_colours$title),
           plot.title.position = "plot",
-          axis.line = element_line(colour = my_colours$axis),
-          axis.ticks = element_line(colour = my_colours$axis),
-          axis.text = element_text(colour = my_colours$axis),
-          axis.title = element_text(colour = my_colours$axis),
-          panel.background = element_rect(fill='transparent'),
-          plot.background = element_rect(fill='transparent', color=NA)
+          axis.line = element_line(colour = app_colours$axis),
+          axis.ticks = element_line(colour = app_colours$axis),
+          axis.text = element_text(colour = app_colours$axis),
+          axis.title = element_text(colour = app_colours$axis),
+          panel.background = element_rect(fill = "transparent"),
+          plot.background = element_rect(fill = "transparent", color = NA)
     )
 }
 
@@ -32,9 +32,13 @@ x <- c(0:10)
 y <- sample(1:15, size = 11)
 df <- data.frame(x, y)
 
+# For setting a global theme
+# theme_set(theme_minimalistic())
+# could be used
+
 ggplot(df, aes(x, y)) +
   geom_line() +
-  theme_boa() +
+  theme_minimalistic() +
   ### More interesting customizations that could be used
   theme(legend.position = "none",
         plot.margin = unit(rep(1.5, times = 4), "lines"),
@@ -42,8 +46,8 @@ ggplot(df, aes(x, y)) +
         axis.title.x = element_text(margin = margin(t = -12), size = 11),
         axis.line = element_blank(),
         axis.ticks = element_blank(),
-        axis.text = element_text(colour = my_colours$axis, size = 13),
-        axis.title = element_text(colour = my_colours$axis),
+        axis.text = element_text(colour = app_colours$axis, size = 13),
+        axis.title = element_text(colour = app_colours$axis),
         axis.title.y.left = element_blank(),
         axis.text.y = element_blank()
   )
