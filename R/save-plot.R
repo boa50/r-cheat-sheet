@@ -6,7 +6,7 @@ library(ggplot2)
 
 save_plot <- function(plot_name = "myplot", background = NULL) {
   ggsave(
-    paste(plot_name, ".png", sep = ""),
+    paste0(plot_name, ".png"),
     width = 3840,
     height = 2460,
     units = "px",
