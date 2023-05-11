@@ -26,5 +26,3 @@ ggplot(df, aes(x, y)) +
       <span style='font-size:30px;'>HTML</span> code</span></b>"),
     fill = NA,
     label.color = NA)
-
-?tibble
